@@ -19,7 +19,8 @@ const App: React.FC = () => {
         const imageResponse = await axios.get<{ message: string; status: string }>(`https://dog.ceo/api/breed/${key}/images/random`);
         return {
           name: key,
-          image: imageResponse.data.message
+          image: imageResponse.data.message,
+          description: ""
         };
       });
   
@@ -37,7 +38,7 @@ const App: React.FC = () => {
   }, []);
 
   const handleSearch = (searchTerm: string) => {
-    const filtered = breeds.filter(breed => breed.includes(searchTerm));
+    const filtered = breeds.filter(breed => breed.name.includes(searchTerm));
     setFilteredBreeds(filtered);
   };
 
@@ -45,7 +46,7 @@ const App: React.FC = () => {
     <div>
       <SearchBar onSearch={handleSearch} />
       <div className="breed-container">
-        {filteredBreeds.map(breed => <BreedCard key={breed.name} breed={breed} />)}
+        {filteredBreeds.map(breed => <BreedCard key={breed.name} breed={breed} click="" />)}
       </div>
     </div>
   );

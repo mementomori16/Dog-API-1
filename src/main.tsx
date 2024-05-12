@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/breed/:breedName" element={<BreedDetail br/>} />
+        <Route path="/breed/:breedName" element={<BreedDetail />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
